@@ -9,10 +9,12 @@ export 'package:simca_movil/widgets/profile/profile_header.dart';
 export 'package:simca_movil/widgets/profile/profile_box_information.dart';
 export 'package:simca_movil/widgets/profile/profile_options_menu.dart';
 
+//Grades
 
 
 
 //Global
+export 'package:simca_movil/widgets/info_screens/background_screens.dart';
 export 'package:simca_movil/widgets/custom_textfield.dart';
 export 'package:simca_movil/widgets/custom_button.dart';
 export 'package:flutter/material.dart';

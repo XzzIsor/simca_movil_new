@@ -8,11 +8,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Simca',
-      initialRoute: 'login',
+      initialRoute: 'profile',
       debugShowCheckedModeBanner: false,
       routes: {
         'login' : (BuildContext context) => const LoginScreen(),
-        'profile' : (BuildContext context) => const ProfileScreen()
+        'profile' : (BuildContext context) => const ProfileScreen(),
+        'grades' : (BuildContext context) => const GradesScreen()
       },
     );
   }
