@@ -20,7 +20,14 @@ class ProfileHeader extends StatelessWidget {
           const SizedBox(height: 20,),
           const ProfileBoxInformation(),
           const SizedBox(height: 30,),
-          const CustomDropDown(),
+          const CustomDropDown(
+            color: Color.fromRGBO(255, 255, 255, 0.55),
+            options: ['Ayuda',
+            'Esto no es un meme',
+            '*Llora en binario*'],
+            text: 'Ingenieria de Sistemas',
+            width: 220,
+          ),
           const SizedBox(height: 25,),
           const ProfileOptionsMenu()
         ],

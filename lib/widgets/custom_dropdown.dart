@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
 
 class CustomDropDown extends StatelessWidget {
-  const CustomDropDown({Key? key}) : super(key: key);
+  const CustomDropDown({Key? key, required this.color, required this.width, required this.text, required this.options}) : super(key: key);
+
+  final Color color;
+  final double width;
+  final String text;
+  final List<String> options;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: Container(
-        width: 220,
+        width: width,
         decoration: BoxDecoration(
-          color: const Color.fromRGBO(255, 255, 255, 0.55),
-          borderRadius: BorderRadius.circular(35)
-        ),
+            color: color,
+            borderRadius: BorderRadius.circular(35)),
         child: Center(
           child: DropdownButton(
-              onChanged: (opt) {}, 
-              items:  _getOptionsDropdown(),
-              hint: const Text('Ingeniería de Sistemas', style: TextStyle(fontWeight: FontWeight.bold),),
-              
+            onChanged: (opt) {},
+            items: _getOptionsDropdown(),
+            hint: Text(
+              text,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
           ),
         ),
       ),
@@ -26,14 +32,10 @@ class CustomDropDown extends StatelessWidget {
   }
 
   List<DropdownMenuItem<String>> _getOptionsDropdown() {
-    List<String> _opciones = [
-      'Ayuda',
-      'Esto no es un meme',
-      '*Llora en binario*'
-    ];
+  
     List<DropdownMenuItem<String>> list = [];
 
-    _opciones.forEach((element) {
+    options.forEach((element) {
       list.add(DropdownMenuItem(
         child: Text(element),
         value: element,
