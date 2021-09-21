@@ -4,15 +4,17 @@ class DropDownScreensOptions extends StatefulWidget {
   const DropDownScreensOptions(
       {Key? key,
       required this.name,
-      required this.grade,
-      required this.description})
+      this.grade,
+      required this.description,
+      this.credits})
       : super(key: key);
 
   @override
   State<DropDownScreensOptions> createState() => _DropDownScreensOptionsState();
 
   final String name;
-  final double grade;
+  final double? grade;
+  final String? credits;
   final String description;
 }
 
@@ -27,7 +29,18 @@ class _DropDownScreensOptionsState extends State<DropDownScreensOptions> {
   @override
   Widget build(BuildContext context) {
     const double _width = 300;
-    Color color = widget.grade >= 3.0 ? Colors.green : Colors.red;
+    Color color = Colors.green;
+    final String label;
+
+    if (widget.grade != null) {
+      color = widget.grade! >= 3.0 ? Colors.green : Colors.red;
+    }
+
+    if (widget.credits == null) {
+      label = widget.grade.toString();
+    } else {
+      label = widget.credits!;
+    }
 
     return Column(
       children: [
@@ -54,7 +67,7 @@ class _DropDownScreensOptionsState extends State<DropDownScreensOptions> {
               Row(
                 children: [
                   Text(
-                    '${widget.grade}',
+                    label,
                     style: TextStyle(
                         color: color,
                         fontWeight: FontWeight.bold,
@@ -85,9 +98,14 @@ class _DropDownScreensOptionsState extends State<DropDownScreensOptions> {
                         bottomLeft: Radius.circular(15),
                         bottomRight: Radius.circular(15))),
                 width: _width,
-                child: Text(
-                  widget.description,
-                  style: _textStyle,
+                child: Row(
+                  children: [
+                    Text(
+                      widget.description,
+                      style: _textStyle,
+                    ),
+                    const SizedBox(height: 50)
+                  ],
                 ),
               )
             : Container(),

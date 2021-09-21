@@ -16,7 +16,7 @@ class _GradesScreenState extends State<GradesScreen> {
         children: [
           BackgroundScreens(),
           HeaderScreen(title: 'Notas', icon: Icons.grade_outlined,),
-          FormBodyInfo(),
+          FormBodyInfoGrades(),
           BottomAverageGrades(average: '4.0',)
         ],
       )

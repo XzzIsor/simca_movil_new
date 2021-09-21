@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simca_movil/widgets/info_screens/pensum/form_body_info_pensum.dart';
 import 'package:simca_movil/widgets/widgets.dart';
 
 class PensumScreen extends StatelessWidget {
@@ -6,14 +7,23 @@ class PensumScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Stack(
-        children: [
-          BackgroundScreens(),
-          HeaderScreen(title: 'Pénsum', icon: Icons.grading,),
-          FormBodyInfo(),
-          BottomAverageGrades(average: '4.0',)
-        ],
+      body: SingleChildScrollView(
+        child: Container(
+          height: size.height,
+          child: Stack(
+            children: const [
+              BackgroundScreens(),
+              HeaderScreen(
+                title: 'Pénsum',
+                icon: Icons.grading,
+              ),
+              FormBodyInfoPensum(),
+              RequerimentsPensum()
+            ],
+          ),
+        ),
       ),
     );
   }

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:simca_movil/widgets/widgets.dart';
 
-class FormBodyInfo extends StatefulWidget {
-  const FormBodyInfo({Key? key}) : super(key: key);
+class FormBodyInfoGrades extends StatefulWidget {
+  const FormBodyInfoGrades({Key? key}) : super(key: key);
 
   @override
-  State<FormBodyInfo> createState() => _FormBodyInfoState();
+  State<FormBodyInfoGrades> createState() => _FormBodyInfoGradesState();
 }
 
-class _FormBodyInfoState extends State<FormBodyInfo> {
+class _FormBodyInfoGradesState extends State<FormBodyInfoGrades> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -28,21 +28,22 @@ class _FormBodyInfoState extends State<FormBodyInfo> {
               children: [
                 DropDownScreensHeader(
                   label: 'PERIODO 2020.1',
+                  optionList: ['PERIODO 2020.1, PERIODO 2020.2'],
                 ),
-                DropDownScreensOptions(
+                const DropDownScreensOptions(
                   name: 'Ingenieria de Software',
                   grade: 4.0,
                   description: 'Uwu',
                 ),
-                DropDownScreensOptions(
+                const DropDownScreensOptions(
                     name: 'Ética', grade: 5.0, description: 'Awa'),
-                DropDownScreensOptions(
+                const DropDownScreensOptions(
                     name: 'Álgrebra Lineal', grade: 4.5, description: 'Ewe'),
-                DropDownScreensOptions(
+                const DropDownScreensOptions(
                     name: 'Estructura de Datos II',
                     grade: 2.0,
                     description: 'Iwi'),
-                DropDownScreensOptions(
+                const DropDownScreensOptions(
                     name: 'Laboratorio ', grade: 3.0, description: 'Owo'),
               ],
             ),

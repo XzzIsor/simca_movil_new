@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class DropDownScreensHeader extends StatefulWidget {
-  DropDownScreensHeader({Key? key, required this.label})
-      : super(key: key);
+  DropDownScreensHeader({Key? key, required this.label, required this.optionList}) : super(key: key);
 
   String label;
+  List<String> optionList;
   @override
   State<DropDownScreensHeader> createState() => _DropDownScreensHeaderState();
 }
@@ -13,13 +13,12 @@ class _DropDownScreensHeaderState extends State<DropDownScreensHeader> {
   bool isExpanded = false;
   final TextStyle _textStyle = const TextStyle(
       color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20);
-  final List<String> _optionList = ['PERIODO 2020.1', 'PERIODO 2020.2'];
 
   @override
   Widget build(BuildContext context) {
     const double _width = 300;
 
-    double _height = (_optionList.length.toDouble() * 25);
+    double _height = (widget.optionList.length.toDouble() * 25);
 
     final _optionListView = Column(
       children: [
@@ -36,17 +35,17 @@ class _DropDownScreensHeaderState extends State<DropDownScreensHeader> {
               context: context,
               removeTop: true,
               child: ListView.builder(
-                  itemCount: _optionList.length,
+                  itemCount: widget.optionList.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       child: Text(
-                        _optionList[index],
+                        widget.optionList[index],
                         style: _textStyle,
                       ),
                       onTap: () {
                         setState(() {
                           isExpanded = !isExpanded;
-                          widget.label = _optionList[index];
+                          widget.label = widget.optionList[index];
                         });
                       },
                     );

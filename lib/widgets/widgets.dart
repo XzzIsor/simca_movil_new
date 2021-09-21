@@ -1,6 +1,5 @@
 //Info Screens
 export 'package:simca_movil/widgets/info_screens/background_screens.dart';
-export 'package:simca_movil/widgets/info_screens/form_body_info.dart';
 export 'package:simca_movil/widgets/info_screens/header_screens.dart';
 export 'package:simca_movil/widgets/info_screens/dropdown_screens_header.dart';
 export 'package:simca_movil/widgets/info_screens/dropdown_screens_options.dart';
@@ -18,6 +17,11 @@ export 'package:simca_movil/widgets/profile/profile_options_menu.dart';
 
 //Grades
 export 'package:simca_movil/widgets/info_screens/grades/bottom_average_grades.dart';
+export 'package:simca_movil/widgets/info_screens/grades/form_body_info_grades.dart';
+
+//Pensum
+export 'package:simca_movil/widgets/info_screens/pensum/form_body_info_pensum.dart';
+export 'package:simca_movil/widgets/info_screens/pensum/requeriments_pensum.dart';
 
 //Global
 export 'package:simca_movil/widgets/custom_button.dart';
