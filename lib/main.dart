@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
       routes: {
         'login' : (BuildContext context) => const LoginScreen(),
         'profile' : (BuildContext context) => const ProfileScreen(),
-        'grades' : (BuildContext context) => const GradesScreen()
+        'grades' : (BuildContext context) => const GradesScreen(),
+        'pensum' : (BuildContext context) => const PensumScreen()
       },
     );
   }

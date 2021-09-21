@@ -1,9 +1,9 @@
 //Info Screens
 export 'package:simca_movil/widgets/info_screens/background_screens.dart';
 export 'package:simca_movil/widgets/info_screens/form_body_info.dart';
-export 'package:simca_movil/widgets/info_screens/dropdown_screens.dart';
-
-
+export 'package:simca_movil/widgets/info_screens/header_screens.dart';
+export 'package:simca_movil/widgets/info_screens/dropdown_screens_header.dart';
+export 'package:simca_movil/widgets/info_screens/dropdown_screens_options.dart';
 
 //Login
 export 'package:simca_movil/widgets/login/login_background.dart';
