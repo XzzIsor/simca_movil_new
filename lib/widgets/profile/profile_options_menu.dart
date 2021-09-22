@@ -13,7 +13,7 @@ class ProfileOptionsMenu extends StatelessWidget {
             () => Navigator.pushNamed(context, 'grades'),
             Icons.apps_outlined,
             'Materias',
-            () {}),
+            () => Navigator.pushNamed(context, 'subject')),
         _optionCards(Icons.grading, 'Pénsum', () => Navigator.pushNamed(context, 'pensum'), Icons.school, 'Matrícula', () {}),
         _optionCards(
             Icons.alarm_on_outlined, 'Faltas', (){},

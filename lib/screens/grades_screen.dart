@@ -13,7 +13,7 @@ class _GradesScreenState extends State<GradesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: [
+        children: const [
           BackgroundScreens(),
           HeaderScreen(title: 'Notas', icon: Icons.grade_outlined,),
           FormBodyInfoGrades(),

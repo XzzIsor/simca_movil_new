@@ -30,15 +30,17 @@ class _DropDownScreensOptionsState extends State<DropDownScreensOptions> {
   Widget build(BuildContext context) {
     const double _width = 300;
     Color color = Colors.green;
-    final String label;
+    String label = '';
 
     if (widget.grade != null) {
       color = widget.grade! >= 3.0 ? Colors.green : Colors.red;
     }
 
-    if (widget.credits == null) {
+    if (widget.grade != null) {
       label = widget.grade.toString();
-    } else {
+    }
+    
+    if(widget.credits != null){
       label = widget.credits!;
     }
 

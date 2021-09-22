@@ -14,7 +14,9 @@ class MyApp extends StatelessWidget {
         'login' : (BuildContext context) => const LoginScreen(),
         'profile' : (BuildContext context) => const ProfileScreen(),
         'grades' : (BuildContext context) => const GradesScreen(),
-        'pensum' : (BuildContext context) => const PensumScreen()
+        'pensum' : (BuildContext context) => const PensumScreen(),
+        'subject' : (BuildContext context) => const SubjectsScreen(),
+        'requirements' : (BuildContext context) => const RequerimentsScreen()
       },
     );
   }
