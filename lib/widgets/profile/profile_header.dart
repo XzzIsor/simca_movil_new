@@ -48,7 +48,7 @@ class ProfileHeader extends StatelessWidget {
 
   Widget _userName() {
     return const Text(
-      'Daniel likes pps',
+      'Daniel Cerón',
       style: TextStyle(
         color: Colors.white,
         fontWeight: FontWeight.bold,

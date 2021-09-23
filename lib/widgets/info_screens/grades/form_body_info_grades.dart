@@ -28,7 +28,7 @@ class _FormBodyInfoGradesState extends State<FormBodyInfoGrades> {
               children: [
                 DropDownScreensHeader(
                   label: 'PERIODO 2020.1',
-                  optionList: ['PERIODO 2020.1, PERIODO 2020.2'],
+                  optionList: ['PERIODO 2020.1', 'PERIODO 2020.2'],
                 ),
                 const DropDownScreensOptions(
                   name: 'Ingenieria de Software',

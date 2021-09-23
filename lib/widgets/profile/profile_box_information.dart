@@ -20,7 +20,7 @@ class ProfileBoxInformation extends StatelessWidget {
               Text('Semestre: 5', style: _textStyle,),
               Text('Promedio: 1.5', style: _textStyle),
               Text('Código: 564564678465', style: _textStyle),
-              Text('Usuario: Patty Myculo', style: _textStyle)
+              Text('Usuario: desceron', style: _textStyle)
             ],
           ),),
       decoration: BoxDecoration(
