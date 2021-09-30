@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'package:simca_movil/screens/screens.dart';
+import 'package:simca_movil/services/pensum_service.dart';
 import 'package:simca_movil/services/services.dart';
-import 'package:simca_movil/services/student_service.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,11 +13,14 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => StudentService()),
         ChangeNotifierProvider(create: (_) => ClassService()),
-        ChangeNotifierProvider(create: (_) => ProgramService())
+        ChangeNotifierProvider(create: (_) => ProgramService()),
+        ChangeNotifierProvider(create: (_) => PensumService()),
+        ChangeNotifierProvider(create: (_) => SemesterService()),
+        ChangeNotifierProvider(create: (_) => SubjectsService()),
       ],
       child: MaterialApp(
         title: 'Simca',
-        initialRoute: 'profile',
+        initialRoute: 'login',
         debugShowCheckedModeBanner: false,
         routes: {
           'login': (BuildContext context) => const LoginScreen(),

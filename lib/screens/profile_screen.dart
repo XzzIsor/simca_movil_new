@@ -11,10 +11,6 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  ClassService classes = ClassService();
-  ProgramService programs = ProgramService();
-  PensumService pensum = PensumService();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

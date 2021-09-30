@@ -8,7 +8,9 @@ import 'package:simca_movil/ngrokroute.dart';
 class StudentService extends ChangeNotifier {
   final _URL = ngrokUrl;
 
-  List<Student> students = [];
+  final List<Student> _students = [];
+
+  List<Student> get students => _students;
 
   StudentService() {
     _getStudents();
@@ -23,9 +25,8 @@ class StudentService extends ChangeNotifier {
 
     for (var i = 0; i < data.length; i++) {
       final decodedResp = Student.fromJson(data[i]);
-      students.add(decodedResp);
+      _students.add(decodedResp);
     }
-    print(students);
     //students.addAll(decodedResp)
     notifyListeners();
   }
