@@ -1,39 +1,37 @@
 import 'dart:convert';
 
-import 'package:simca_movil/models/pensum.dart';
-
-class IProgram {
-  IProgram({
+class Program {
+  Program({
     required this.id,
     required this.name,
-    required this.duration,
     required this.description,
-    required this.pensum
+    required this.duration,
+    required this.pensumId,
   });
 
-  int id;
+  String id;
   String name;
-  String duration;
   String description;
-  IPensum pensum;
+  String duration;
+  String pensumId;
 
-  factory IProgram.fromJson(String str) => IProgram.fromMap(json.decode(str));
+  factory Program.fromJson(Map<String, dynamic> str) => Program.fromMap(str);
 
   String toJson() => json.encode(toMap());
 
-  factory IProgram.fromMap(Map<String, dynamic> json) => IProgram(
-        id: json["ID"],
+  factory Program.fromMap(Map<String, dynamic> json) => Program(
+        id: json["_id"],
         name: json["name"],
-        duration: json["duration"],
         description: json["description"],
-        pensum: json["pensum"]
+        duration: json["duration"],
+        pensumId: json["pensumId"],
       );
 
   Map<String, dynamic> toMap() => {
-        "ID": id,
+        "_id": id,
         "name": name,
-        "duration": duration,
         "description": description,
-        "pensum" : pensum
+        "duration": duration,
+        "pensumId": pensumId,
       };
 }

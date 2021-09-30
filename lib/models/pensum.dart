@@ -1,31 +1,29 @@
 import 'dart:convert';
 
-import 'package:simca_movil/models/semester.dart';
-
-class IPensum {
-  IPensum({
+class Pensum {
+  Pensum({
     required this.id,
     required this.name,
-    required this.semesters
+    required this.semesters,
   });
 
-  int id;
+  String id;
   String name;
-  List<ISemester> semesters;
+  List<String> semesters;
 
-  factory IPensum.fromJson(String str) => IPensum.fromMap(json.decode(str));
+  factory Pensum.fromJson(String str) => Pensum.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
-  factory IPensum.fromMap(Map<String, dynamic> json) => IPensum(
-        id: json["ID"],
+  factory Pensum.fromMap(Map<String, dynamic> json) => Pensum(
+        id: json["_id"],
         name: json["name"],
-        semesters : json["semesters"]
+        semesters: List<String>.from(json["semesters"].map((x) => x)),
       );
 
   Map<String, dynamic> toMap() => {
-        "ID": id,
+        "_id": id,
         "name": name,
-        "semesters" : semesters
+        "semesters": List<dynamic>.from(semesters.map((x) => x)),
       };
 }

@@ -31,6 +31,15 @@ export 'package:simca_movil/widgets/info_screens/grades/form_body_info_grades.da
 export 'package:simca_movil/widgets/info_screens/pensum/form_body_info_pensum.dart';
 export 'package:simca_movil/widgets/info_screens/pensum/requeriments_pensum.dart';
 
+//Absences
+export 'package:simca_movil/widgets/info_screens/absences/form_body_info_absences.dart';
+
+//History
+export 'package:simca_movil/widgets/info_screens/history/form_body_info_history.dart';
+
+//Enrollment
+export 'package:simca_movil/widgets/info_screens/enrollment/form_body_info_enrollment.dart';
+
 //Global
 export 'package:simca_movil/widgets/custom_button.dart';
 export 'package:simca_movil/widgets/custom_textfield.dart';

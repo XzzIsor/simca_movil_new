@@ -1,59 +1,45 @@
 import 'dart:convert';
 
-import 'package:simca_movil/models/program.dart';
-
-class IStudent {
-  IStudent({
-    required this.identification,
-    required this.identificationType,
-    required this.expeditionCity,
-    required this.name,
-    required this.age,
+class Student {
+  Student({
+    required this.id,
     required this.email,
-    required this.birthdate,
-    required this.state,
-    required this.studentId,
-    required this.programs
+    required this.password,
+    required this.person,
+    required this.classes,
+    required this.programId,
+    required this.history,
   });
 
-  int identification;
-  String identificationType;
-  String expeditionCity;
-  String name;
-  int age;
+  String id;
   String email;
-  String birthdate;
-  String state;
-  int studentId;
-  List<IProgram> programs;
+  String password;
+  String person;
+  List<String> classes;
+  String programId;
+  List<String> history;
 
-  factory IStudent.fromJson(String str) => IStudent.fromMap(json.decode(str));
+  factory Student.fromJson(Map<String, dynamic> str) => Student.fromMap(str);
 
   String toJson() => json.encode(toMap());
 
-  factory IStudent.fromMap(Map<String, dynamic> json) => IStudent(
-        identification: json["Identification"],
-        identificationType: json["IdentificationType"],
-        expeditionCity: json["ExpeditionCity"],
-        name: json["name"],
-        age: json["age"],
+  factory Student.fromMap(Map<String, dynamic> json) => Student(
+        id: json["_id"],
         email: json["email"],
-        birthdate: json["birthdate"],
-        state: json["state"],
-        studentId: json["studentId"],
-        programs : json["programs"]
+        password: json["password"],
+        person: json["person"],
+        classes: List<String>.from(json["classes"].map((x) => x)),
+        programId: json["programId"],
+        history: List<String>.from(json["history"].map((x) => x)),
       );
 
   Map<String, dynamic> toMap() => {
-        "Identification": identification,
-        "IdentificationType": identificationType,
-        "ExpeditionCity": expeditionCity,
-        "name": name,
-        "age": age,
+        "_id": id,
         "email": email,
-        "birthdate": birthdate,
-        "state": state,
-        "studentId": studentId,
-        "programs": programs
+        "password": password,
+        "person": person,
+        "classes": List<dynamic>.from(classes.map((x) => x)),
+        "programId": programId,
+        "history": List<dynamic>.from(history.map((x) => x)),
       };
 }

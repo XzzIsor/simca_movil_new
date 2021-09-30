@@ -1,39 +1,29 @@
 import 'dart:convert';
 
-import 'package:simca_movil/models/Subject.dart';
-
-class ISemester {
-  ISemester({
+class Semester {
+  Semester({
     required this.id,
     required this.name,
     required this.subjects,
-    required this.startdate,
-    required this.enddate,
   });
 
-  int id;
+  String id;
   String name;
-  List<ISubject> subjects;
-  DateTime startdate;
-  DateTime enddate;
+  List<String> subjects;
 
-  factory ISemester.fromJson(String str) => ISemester.fromMap(json.decode(str));
+  factory Semester.fromJson(Map<String, dynamic> str) => Semester.fromMap(str);
 
   String toJson() => json.encode(toMap());
 
-  factory ISemester.fromMap(Map<String, dynamic> json) => ISemester(
-        id: json["ID"],
+  factory Semester.fromMap(Map<String, dynamic> json) => Semester(
+        id: json["_id"],
         name: json["name"],
-        startdate: json["startdate"],
-        enddate: json["enddate"],
-        subjects: json["subjects"]
+        subjects: List<String>.from(json["subjects"].map((x) => x)),
       );
 
   Map<String, dynamic> toMap() => {
-        "ID": id,
+        "_id": id,
         "name": name,
-        "startdate": startdate,
-        "enddate": enddate,
-        "subjects" : subjects
-  };
+        "subjects": List<dynamic>.from(subjects.map((x) => x)),
+      };
 }

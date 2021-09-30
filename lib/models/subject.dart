@@ -1,35 +1,33 @@
-
-
 import 'dart:convert';
 
-class ISubject {
-    ISubject({
+class Subject {
+    Subject({
         required this.id,
         required this.name,
+        this.description,
         required this.credits,
-        required this.description,
     });
 
-    int id;
+    String id;
     String name;
+    String? description;
     int credits;
-    String description;
 
-    factory ISubject.fromJson(String str) => ISubject.fromMap(json.decode(str));
+    factory Subject.fromJson(String str) => Subject.fromMap(json.decode(str));
 
     String toJson() => json.encode(toMap());
 
-    factory ISubject.fromMap(Map<String, dynamic> json) => ISubject(
-        id: json["ID"],
+    factory Subject.fromMap(Map<String, dynamic> json) => Subject(
+        id: json["id"],
         name: json["name"],
+        description: json["description"],
         credits: json["credits"],
-        description: json["Description"],
     );
 
     Map<String, dynamic> toMap() => {
-        "ID": id,
+        "id": id,
         "name": name,
+        "description": description,
         "credits": credits,
-        "Description": description,
     };
 }

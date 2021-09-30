@@ -11,7 +11,6 @@ class ListBodyCustom extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.only(top: 135, left: 15, right: 15),
         child: Container(
-            height: size.height * 0.75,
             width: size.width * 0.90,
             decoration: BoxDecoration(
                 color: const Color.fromRGBO(255, 255, 255, 0.35),
