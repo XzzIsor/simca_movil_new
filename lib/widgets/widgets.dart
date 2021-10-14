@@ -30,6 +30,8 @@ export 'package:simca_movil/widgets/info_screens/grades/form_body_info_grades.da
 //Pensum
 export 'package:simca_movil/widgets/info_screens/pensum/form_body_info_pensum.dart';
 export 'package:simca_movil/widgets/info_screens/pensum/requeriments_pensum.dart';
+export 'package:simca_movil/widgets/info_screens/pensum/form_body_pensum_demo.dart';
+
 
 //Absences
 export 'package:simca_movil/widgets/info_screens/absences/form_body_info_absences.dart';

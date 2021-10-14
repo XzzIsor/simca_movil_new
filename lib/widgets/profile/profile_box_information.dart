@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:simca_movil/models/models.dart';
-import 'package:simca_movil/state.dart';
+import 'package:provider/provider.dart';
+import 'package:simca_movil/services/services.dart';
 
 class ProfileBoxInformation extends StatelessWidget {
   const ProfileBoxInformation({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Student studentProvider = StateCustom().getStudent();
+    final student = Provider.of<StudentService>(context).getStudentAuth();
+
     final size = MediaQuery.of(context).size;
     const TextStyle _textStyle = TextStyle(
         color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold);
@@ -22,12 +23,12 @@ class ProfileBoxInformation extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              'Semestre: ${studentProvider.history.length + 1}',
+              'Semestre: ${student.history.length + 1}',
               style: _textStyle,
             ),
             Text('Promedio: 1.5', style: _textStyle),
-            Text('Código: ${studentProvider.id}', style: _textStyle),
-            Text('Usuario: ${studentProvider.user}', style: _textStyle)
+            Text('Código: ${student.id}', style: _textStyle),
+            Text('Usuario: ${student.user}', style: _textStyle)
           ],
         ),
       ),

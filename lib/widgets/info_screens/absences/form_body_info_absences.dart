@@ -12,14 +12,16 @@ class _FormBodyInfoAbsencesState extends State<FormBodyInfoAbsences> {
   @override
   Widget build(BuildContext context) {
     return ListBodyCustom(
-      child: Column(
-        children: [
-          DropDownScreensOptions(name: 'Materia Algo', description: 'No sé'),
-          DropDownScreensOptions(name: 'Materia Algo', description: 'No sé'),
-          DropDownScreensOptions(name: 'Materia Algo', description: 'No sé'),
-          DropDownScreensOptions(name: 'Materia Algo', description: 'No sé'),
-          DropDownScreensOptions(name: 'Materia Algo', description: 'No sé'),
-        ],
+      child: ListView(
+        children:[ Column(
+          children: const [
+            DropDownScreensOptions(name: 'Materia Algo', description: 'No sé'),
+            DropDownScreensOptions(name: 'Materia Algo', description: 'No sé'),
+            DropDownScreensOptions(name: 'Materia Algo', description: 'No sé'),
+            DropDownScreensOptions(name: 'Materia Algo', description: 'No sé'),
+            DropDownScreensOptions(name: 'Materia Algo', description: 'No sé'),
+          ],
+        ),]
       )
     );
   }

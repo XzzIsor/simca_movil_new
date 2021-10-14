@@ -11,7 +11,7 @@ class Semester {
   String name;
   List<String> subjects;
 
-  factory Semester.fromJson(Map<String, dynamic> str) => Semester.fromMap(str);
+  factory Semester.fromJson(String str) => Semester.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 

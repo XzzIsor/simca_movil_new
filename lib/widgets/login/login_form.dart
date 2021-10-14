@@ -4,8 +4,6 @@ import 'package:simca_movil/models/models.dart';
 import 'package:simca_movil/services/student_service.dart';
 import 'package:simca_movil/widgets/widgets.dart';
 
-import '../../state.dart';
-
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
 
@@ -18,11 +16,11 @@ class _LoginFormState extends State<LoginForm> {
   String user = '';
   String password = '';
 
-  List<Student> students = StudentService().students;
-
   bool keepSession = false;
   @override
   Widget build(BuildContext context) {
+    final student = Provider.of<StudentService>(context);
+
     return SingleChildScrollView(
         child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
@@ -47,14 +45,15 @@ class _LoginFormState extends State<LoginForm> {
             ),
             const SizedBox(height: 15),
             CustomTextField(
-                label: 'Contraseña',
-                icon: Icons.lock,
-                hintText: '******',
-                onChange: (value) {
-                  password = value;
-                },
-                emailType: false,
-                obscureText: true),
+              label: 'Contraseña',
+              icon: Icons.lock,
+              hintText: '******',
+              onChange: (value) {
+                password = value;
+              },
+              emailType: false,
+              obscureText: true
+            ),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -75,16 +74,15 @@ class _LoginFormState extends State<LoginForm> {
             CustomButton(
                 label: 'Ingresar',
                 onPress: () {
-                  students.forEach((element) {
+                  for (var element in student.students) {
                     if (element.user == user && element.password == password) {
-                      final hol = StateCustom();
-                      hol.setStudent(element);
+                      student.idStudent = element.id;
                       Navigator.pushReplacementNamed(context, 'profile');
                       return;
                     } else {
                       () => {};
                     }
-                  });
+                  }
                 })
           ],
         ),

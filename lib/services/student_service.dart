@@ -3,14 +3,18 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:simca_movil/models/models.dart';
 import 'package:http/http.dart' as http;
-import 'package:simca_movil/ngrokroute.dart';
+import 'package:simca_movil/route.dart';
 
 class StudentService extends ChangeNotifier {
   final _URL = ngrokUrl;
 
   final List<Student> _students = [];
+  String _idStudent = '';
 
   List<Student> get students => _students;
+
+  set idStudent(String idStudent) => _idStudent = idStudent;
+  String get idStudent => _idStudent;
 
   StudentService() {
     _getStudents();
@@ -29,5 +33,14 @@ class StudentService extends ChangeNotifier {
     }
     //students.addAll(decodedResp)
     notifyListeners();
+  }
+
+  Student getStudentAuth() {
+    for (var element in students) {
+      if (element.id == _idStudent) {
+        return element;
+      }
+    }
+    throw Exception('No existe el estudiante');
   }
 }

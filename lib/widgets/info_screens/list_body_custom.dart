@@ -12,15 +12,13 @@ class ListBodyCustom extends StatelessWidget {
         padding: const EdgeInsets.only(top: 135, left: 15, right: 15),
         child: Container(
             width: size.width * 0.90,
+            height: size.height * 0.70,
             decoration: BoxDecoration(
                 color: const Color.fromRGBO(255, 255, 255, 0.35),
                 borderRadius: BorderRadius.circular(25)),
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: SingleChildScrollView(
-                  child: child,
-                  
-              ),
+              padding: const EdgeInsets.symmetric(vertical: 0),
+              child: child
             )
         )
     );

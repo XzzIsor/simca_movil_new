@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:simca_movil/services/services.dart';
 
 class ProfileOptionsMenu extends StatelessWidget {
   const ProfileOptionsMenu({Key? key}) : super(key: key);
@@ -6,23 +8,23 @@ class ProfileOptionsMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Table(
-      children: [
-        _optionCards(
-            Icons.grade_outlined,
-            'Notas',
-            () => Navigator.pushNamed(context, 'grades'),
-            Icons.apps_outlined,
-            'Materias',
-            () => Navigator.pushNamed(context, 'subject')),
-        _optionCards(
-          Icons.grading, 'Pénsum', () => Navigator.pushNamed(context, 'pensum'), 
-          Icons.school, 'Matrícula', () => Navigator.pushNamed(context, 'enroll')
-        ),
-        _optionCards(
-            Icons.alarm_on_outlined, 'Faltas', () => Navigator.pushNamed(context, 'absences'),
-            Icons.history_edu_outlined, 'Historia', () => Navigator.pushNamed(context, 'history')
-        ),
-      ],
+        children: [
+          _optionCards(
+              Icons.grade_outlined,
+              'Notas',
+              () => Navigator.pushNamed(context, 'grades'),
+              Icons.apps_outlined,
+              'Materias',
+              () => Navigator.pushNamed(context, 'subject')),
+          _optionCards(
+            Icons.grading, 'Pénsum', () => Navigator.pushNamed(context, 'pensum'), 
+            Icons.school, 'Matrícula', () => Navigator.pushNamed(context, 'enroll')
+          ),
+          _optionCards(
+              Icons.alarm_on_outlined, 'Faltas', () => Navigator.pushNamed(context, 'absences'),
+              Icons.history_edu_outlined, 'Historia', () => Navigator.pushNamed(context, 'history')
+          ),
+        ],
     );
   }
 

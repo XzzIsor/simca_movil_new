@@ -4,21 +4,20 @@ import 'package:simca_movil/screens/screens.dart';
 import 'package:simca_movil/services/pensum_service.dart';
 import 'package:simca_movil/services/services.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(
+  MultiProvider(providers: [
+        ChangeNotifierProvider(create: (_) => StudentService()),
+        ChangeNotifierProvider(create: (_) => SubjectsService())
+  ],
+      child: MyApp(),
+  )
+  
+);
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => StudentService()),
-        ChangeNotifierProvider(create: (_) => ClassService()),
-        ChangeNotifierProvider(create: (_) => ProgramService()),
-        ChangeNotifierProvider(create: (_) => PensumService()),
-        ChangeNotifierProvider(create: (_) => SemesterService()),
-        ChangeNotifierProvider(create: (_) => SubjectsService()),
-      ],
-      child: MaterialApp(
+    return MaterialApp(
         title: 'Simca',
         initialRoute: 'login',
         debugShowCheckedModeBanner: false,
@@ -33,7 +32,6 @@ class MyApp extends StatelessWidget {
           'history': (BuildContext context) => const HistoryScreen(),
           'enroll': (BuildContext context) => const EnrollmentScreen()
         },
-      ),
     );
   }
 }

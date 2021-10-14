@@ -13,7 +13,7 @@ class DropDownScreensOptions extends StatefulWidget {
   State<DropDownScreensOptions> createState() => _DropDownScreensOptionsState();
 
   final String name;
-  final double? grade;
+  final int? grade;
   final String? credits;
   final String description;
 }
@@ -29,19 +29,23 @@ class _DropDownScreensOptionsState extends State<DropDownScreensOptions> {
   @override
   Widget build(BuildContext context) {
     const double _width = 300;
-    Color color = Colors.green;
+    Color? color;
     String label = '';
 
     if (widget.grade != null) {
-      color = widget.grade! >= 3.0 ? Colors.green : Colors.red;
+      if (widget.grade! >= 3) {
+        color = Colors.green;
+      } else {
+        color = Colors.red;
+      }
     }
 
     if (widget.grade != null) {
       label = widget.grade.toString();
     }
-    
-    if(widget.credits != null){
-      label = widget.credits!;
+
+    if (widget.credits != null) {
+      label = widget.credits! + 'c';
     }
 
     return Column(
@@ -61,10 +65,13 @@ class _DropDownScreensOptionsState extends State<DropDownScreensOptions> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                widget.name,
-                style: _textStyle,
-                overflow: TextOverflow.ellipsis,
+              SizedBox(
+                width: 200,
+                child: Text(
+                  widget.name,
+                  style: _textStyle,
+                  overflow: TextOverflow.clip,
+                ),
               ),
               Row(
                 children: [
@@ -100,14 +107,13 @@ class _DropDownScreensOptionsState extends State<DropDownScreensOptions> {
                         bottomLeft: Radius.circular(15),
                         bottomRight: Radius.circular(15))),
                 width: _width,
-                child: Row(
-                  children: [
-                    Text(
-                      widget.description,
-                      style: _textStyle,
-                    ),
-                    const SizedBox(height: 50)
-                  ],
+                child: Container(
+                  margin: EdgeInsets.only(bottom: 25),
+                  child: Text(
+                    widget.description,
+                    overflow: TextOverflow.clip,
+                    style: _textStyle,
+                  ),
                 ),
               )
             : Container(),

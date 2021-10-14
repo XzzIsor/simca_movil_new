@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 
 class CustomDropDown extends StatefulWidget {
-  const CustomDropDown({Key? key, required this.color, required this.width, required this.text, required this.options}) : super(key: key);
+  CustomDropDown(
+      {Key? key,
+      required this.color,
+      required this.width,
+      required this.text,
+      required this.options})
+      : super(key: key);
 
   final Color color;
   final double width;
-  final String text;
+  String text;
   final List<String> options;
 
   @override
@@ -15,17 +21,21 @@ class CustomDropDown extends StatefulWidget {
 class _CustomDropDownState extends State<CustomDropDown> {
   @override
   Widget build(BuildContext context) {
+    
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: Container(
         width: widget.width,
         decoration: BoxDecoration(
-            color: widget.color,
-            borderRadius: BorderRadius.circular(35)),
+            color: widget.color, borderRadius: BorderRadius.circular(35)),
         child: Center(
           child: DropdownButton(
             borderRadius: BorderRadius.circular(25),
-            onChanged: (opt) {},
+            onChanged: (opt) {
+              setState(() {
+              widget.text = opt.toString();
+              });
+            },
             items: _getOptionsDropdown(),
             hint: Text(
               widget.text,
@@ -38,7 +48,6 @@ class _CustomDropDownState extends State<CustomDropDown> {
   }
 
   List<DropdownMenuItem<String>> _getOptionsDropdown() {
-  
     List<DropdownMenuItem<String>> list = [];
 
     widget.options.forEach((element) {

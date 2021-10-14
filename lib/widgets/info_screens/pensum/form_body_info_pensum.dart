@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:simca_movil/models/models.dart';
+import 'package:simca_movil/services/pensum_service.dart';
+import 'package:simca_movil/services/program_service.dart';
 import 'package:simca_movil/widgets/widgets.dart';
 
 class FormBodyInfoPensum extends StatefulWidget {
@@ -10,46 +14,55 @@ class FormBodyInfoPensum extends StatefulWidget {
 
 class _FormBodyInfoPensumState extends State<FormBodyInfoPensum> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Padding(
-      padding: const EdgeInsets.only(top: 130, left: 15, right: 15),
-      child: Container(
-        width: double.infinity,
-        height: size.height * 0.65,
-        decoration: BoxDecoration(
-            color: const Color.fromRGBO(255, 255, 255, 0.35),
-            borderRadius: BorderRadius.circular(25)),
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                DropDownScreensHeader(
-                  label: 'SEMESTRE 1',
-                  optionList: const ['SEMESTRE 1', 'SEMESTRE 2', 'SEMESTRE 3', 'SEMESTRE 4', 'SEMESTRE 5'],
-                ),
-                const DropDownScreensOptions(
-                  name: 'Cálculo I',
-                  credits: '4c',
-                  description: 'Uwu',
-                ),
-                const DropDownScreensOptions(
-                    name: 'Introducción a La Informática', credits: '2c', description: 'Awa'),
-                const DropDownScreensOptions(
-                    name: 'Introducción a la Ingeniería', credits: '1c', description: 'Ewe'),
-                const DropDownScreensOptions(
-                    name: 'Lab. Intro a la Infomática',
-                    credits: '1c',
-                    description: 'Iwi'),
-                const DropDownScreensOptions(
-                    name: 'Lectura y Escritura', credits: '1c', description: 'Owo'),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
+    PensumService pensum = Provider.of<PensumService>(context);
+
+    return pensum.pensum.id != ''
+        ? ListBodyCustom(
+            child: ListView(children: [
+            Column(children: [
+              FutureBuilder(
+                  future: pensum.getSemesters(),
+                  builder: (BuildContext context,
+                      AsyncSnapshot<List<String>> snapshot) {
+                    return snapshot.hasData
+                        ? DropDownScreensHeader(
+                            label: snapshot.data![0],
+                            optionList: snapshot.data!)
+                        : const CircularProgressIndicator();
+                  }),
+              FutureBuilder(
+                  future: pensum.getSubjects(0),
+                  builder: (BuildContext context,
+                      AsyncSnapshot<List<Subject>> snapshot) {
+                    return snapshot.hasData
+                        ? SizedBox(
+                            height: size.height * 0.50,
+                            child: ListView.builder(
+                              itemCount: snapshot.data!.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return DropDownScreensOptions(
+                                  name: snapshot.data![index].name,
+                                  description:
+                                      snapshot.data![index].description!,
+                                  credits:
+                                      snapshot.data![index].credits.toString(),
+                                );
+                              },
+                            ),
+                          )
+                        : const Center(child: CircularProgressIndicator());
+                  })
+            ])
+          ]))
+        : const Center(
+            child: CircularProgressIndicator(),
+          );
   }
 }

@@ -12,21 +12,25 @@ class _FormBodyInfoHistoryState extends State<FormBodyInfoHistory> {
   @override
   Widget build(BuildContext context) {
     return ListBodyCustom(
-      child: Column(
-        children: [
-          DropDownScreensHeader(label: 'Semestre I', optionList: const [
-            'Semestre I', 
-            'Semestre II',
-            'Semestre III'
-          ]),
-          DropDownScreensOptions(name: 'No sé', description: 'Queti'),
-          DropDownScreensOptions(name: 'No sé', description: 'Queti'),
-          DropDownScreensOptions(name: 'No sé', description: 'Queti'),
-          DropDownScreensOptions(name: 'No sé', description: 'Queti'),
-          DropDownScreensOptions(name: 'No sé', description: 'Queti'),
-          DropDownScreensOptions(name: 'No sé', description: 'Queti'),
-        ],
-      )
+      child: ListView(
+          children:[ 
+              Column(
+                children: [
+                  DropDownScreensHeader(label: 'Semestre I', optionList: const [
+                  'Semestre I', 
+                  'Semestre II',
+                  'Semestre III'
+                  ]),
+                  DropDownScreensOptions(name: 'No sé', description: 'Queti'),
+                  DropDownScreensOptions(name: 'No sé', description: 'Queti'),
+                  DropDownScreensOptions(name: 'No sé', description: 'Queti'),
+                  DropDownScreensOptions(name: 'No sé', description: 'Queti'),
+                  DropDownScreensOptions(name: 'No sé', description: 'Queti'),
+                  DropDownScreensOptions(name: 'No sé', description: 'Queti'),
+              ],
+          ),
+          ]
+        ),
     );
   }
 }

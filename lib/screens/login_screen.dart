@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:simca_movil/services/services.dart';
 import 'package:simca_movil/services/student_service.dart';
 import 'package:simca_movil/widgets/widgets.dart';
 
@@ -7,14 +9,15 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    StudentService student = StudentService();
+    
+
     return Scaffold(
-      body: Stack(
-        children: const [
-          LoginBackground(),
-          Center(child: LoginFormBody()),
-        ],
-      ),
+        body: Stack(
+          children: const [
+            LoginBackground(),
+            Center(child: LoginFormBody()),
+          ],
+        ),
     );
   }
 }

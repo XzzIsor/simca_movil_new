@@ -8,7 +8,7 @@ class AbsencesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: [
+        children: const [
           BackgroundScreens(),
           HeaderScreen(title: 'Faltas', icon: Icons.alarm_on_outlined),
           FormBodyInfoAbsences()

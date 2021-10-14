@@ -1,16 +1,20 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import 'package:simca_movil/models/models.dart';
-import 'package:simca_movil/ngrokroute.dart';
+import 'package:simca_movil/route.dart';
+import 'package:simca_movil/services/services.dart';
 
 class ClassService extends ChangeNotifier {
   final _URL = ngrokUrl;
-  List<Classes> classes = [];
+  List<Classes> _classes = [];
 
-  ClassService() {
-    _getStudentClasses('6154da1711fc9e436ddc1fc3');
+  ClassService(String idStudent) {
+    _getStudentClasses(idStudent);
   }
+
+  List<Classes> get classes => _classes;
 
   _getStudentClasses(String idStudent) async {
     final url = '$_URL/class/$idStudent';
@@ -20,7 +24,7 @@ class ClassService extends ChangeNotifier {
 
       for (int i = 0; i < data.length; i++) {
         final _class = Classes.fromJson(data[i]);
-        classes.add(_class);
+        _classes.add(_class);
       }
       notifyListeners();
     } else {

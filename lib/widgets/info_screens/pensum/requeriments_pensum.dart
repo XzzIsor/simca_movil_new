@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:simca_movil/widgets/widgets.dart';
 
 class RequerimentsPensum extends StatelessWidget {
   const RequerimentsPensum({Key? key}) : super(key: key);

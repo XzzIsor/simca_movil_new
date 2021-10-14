@@ -14,8 +14,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          BackgroundScreens(),
-          HeaderScreen(title: 'Historia', icon: Icons.history_edu_outlined),
+          const BackgroundScreens(),
+          const HeaderScreen(title: 'Historia', icon: Icons.history_edu_outlined),
           FormBodyInfoHistory()
         ],
       ),

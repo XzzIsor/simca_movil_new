@@ -12,7 +12,7 @@ class BottomAverageGrades extends StatelessWidget {
         color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold);
 
     return Padding(
-      padding: EdgeInsets.only(top: size.height * 0.84, left: 15, right: 15),
+      padding: EdgeInsets.only(top: size.height * 0.89, left: 15, right: 15),
       child: Container(
         height: 75,
         width: double.infinity,

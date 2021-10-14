@@ -18,12 +18,12 @@ class Person {
     String identificationType;
     String expeditionCity;
 
-    factory Person.fromJson(String str) => Person.fromMap(json.decode(str));
+    factory Person.fromJson(Map<String, dynamic> str) => Person.fromMap(str);
 
     String toJson() => json.encode(toMap());
 
     factory Person.fromMap(Map<String, dynamic> json) => Person(
-        id: json["id"],
+        id: json["_id"],
         name: json["name"],
         age: json["age"],
         identification: json["identification"],
@@ -32,7 +32,7 @@ class Person {
     );
 
     Map<String, dynamic> toMap() => {
-        "id": id,
+        "_id": id,
         "name": name,
         "age": age,
         "identification": identification,
