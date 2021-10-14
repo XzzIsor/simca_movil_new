@@ -1,6 +1,6 @@
 # simca_movil
 
-A new Flutter project.
+A prototype of a functional app based on Simca
 
 ## Getting Started
 
